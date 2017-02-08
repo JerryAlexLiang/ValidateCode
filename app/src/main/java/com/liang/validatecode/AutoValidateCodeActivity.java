@@ -10,7 +10,7 @@ import android.widget.EditText;
 /**
  * 短信验证码自动监听填写
  */
-public class MainActivity extends AppCompatActivity {
+public class AutoValidateCodeActivity extends AppCompatActivity {
 
     public static final int MSG_RECEIVED_CODE = 1;
 
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
         mValidateCode = (EditText) findViewById(R.id.et_validate_code);
 
-        smsObserver = new SmsObserver(MainActivity.this, mHandler);
+        smsObserver = new SmsObserver(AutoValidateCodeActivity.this, mHandler);
         Uri uri = Uri.parse("content://sms");
         getContentResolver().registerContentObserver(uri, true, smsObserver);
     }

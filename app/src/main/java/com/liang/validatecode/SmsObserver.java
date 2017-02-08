@@ -57,7 +57,7 @@ public class SmsObserver extends ContentObserver {
                     Log.e(TAG, "code is : " + code);
 
                     //向Handler发送消息
-                    handler.obtainMessage(MainActivity.MSG_RECEIVED_CODE,code).sendToTarget();
+                    handler.obtainMessage(AutoValidateCodeActivity.MSG_RECEIVED_CODE,code).sendToTarget();
                 }
             }
             cursor.close();
