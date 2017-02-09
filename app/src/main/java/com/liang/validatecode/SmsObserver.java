@@ -48,7 +48,7 @@ public class SmsObserver extends ContentObserver {
                 Log.e(TAG, "发件人为： " + address + " " + "短信内容为：" + body);
 
                 //正则表达式---提取短信中连续6个数字的内容
-                Pattern pattern = Pattern.compile("(\\d{6})");
+                Pattern pattern = Pattern.compile("(\\d{4})");
                 Matcher matcher = pattern.matcher(body);
 
                 if (matcher.find()) {

@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Selection;
 import android.widget.EditText;
 
 /**
@@ -26,6 +27,7 @@ public class AutoValidateCodeActivity extends AppCompatActivity {
                 String code = (String) msg.obj;
                 //更新UI
                 mValidateCode.setText(code);
+
             }
 
         }
@@ -38,6 +40,8 @@ public class AutoValidateCodeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mValidateCode = (EditText) findViewById(R.id.et_validate_code);
+        //EditText焦点聚焦到文字后
+        Selection.setSelection(mValidateCode.getText(),mValidateCode.length());
 
         smsObserver = new SmsObserver(AutoValidateCodeActivity.this, mHandler);
         Uri uri = Uri.parse("content://sms");
